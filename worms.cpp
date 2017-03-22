@@ -21,7 +21,7 @@
 #include "worms/weight.hpp"
 #include "worms/outgoing_weight.hpp"
 
-#include <bcl.hpp>
+#include "bcl.hpp"
 
 #include <vector>
 #include <boost/random.hpp>
@@ -38,7 +38,7 @@ int main(int argc, char* argv[]) {
 
   // lattice
   chain_lattice lattice(opt.L);
-  
+
   // random number generator
   typedef boost::mt19937 engine_t;
   typedef boost::uniform_01<engine_t&> random01_t;
@@ -82,7 +82,7 @@ int main(int argc, char* argv[]) {
   // worm statistics
   double wcount = 0;
   double wlength = 0;
-  
+
   // temporaries
   std::vector<double> times;
   std::vector<int> current(opt.L);
@@ -194,7 +194,7 @@ int main(int argc, char* argv[]) {
       umag2 << mu * mu;
       smag2 << ms * ms;
     }
-    
+
     if (mcs <= opt.therm / 2) {
       wdensity = opt.L / (wlength / wcount);
       if (mcs % (opt.therm / 8) == 0) {

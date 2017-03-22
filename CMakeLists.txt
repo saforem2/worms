@@ -13,10 +13,14 @@ cmake_minimum_required(VERSION 2.8.0 FATAL_ERROR)
 project(worms)
 
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/config)
-
-find_package(BoostSrc)
-include_directories(${Boost_ROOT_DIR})
-include_directories(${PROJECT_SOURCE_DIR})
+FIND_PACKAGE(Boost)
+IF (Boost_FOUND)
+    INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
+    ADD_DEFINITIONS( "-DHAS_BOOST" )
+ENDIF()
+#find_package(BoostSrc)
+#include_directories(${Boost_ROOT_DIR})
+#include_directories(${PROJECT_SOURCE_DIR})
 
 enable_testing()
 include(CTest)
